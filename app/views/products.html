@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 " ng-repeat="product in products">
+      <div class="prod-wrapper">
+        <div class="prod-img">
+          <img ng-src={{product.productImg}} class="img" width="350px" height="330px" />
+        </div>
+        <div class="prod-portfolio">
+          <h3>{{product.productName}}</h3>
+          <p>{{product.productDesc}}</p>
+          <span class="prod-type float-left">{{product.productType}}</span><span class="prod-price float-right">{{product.productPrice}}</span>
+          <div class="clear-fix"></div>
+          <input type="button" class="btn btn-warning float-right"  name="cart" value="add to cart" ng-click=addToCart(product)>
+        </div>
+      </div>
+    </div>
+</div>

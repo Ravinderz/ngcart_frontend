@@ -162,24 +162,6 @@ body {
     color: #fff;
 }
 
-
-/*    --------------------------------------------------
-  :: Login Section
-  -------------------------------------------------- */
-
-  .float-right{
-    float: right;
-  }
-
-  .float-left{
-    float: left;
-  }
-
-  .clear-fix{
-    clear:both;
-  }
-
-
 /*    --------------------------------------------------
     :: Footer
   -------------------------------------------------- */
@@ -193,29 +175,4 @@ body {
 }
 #footer a {
     color: inherit;
-}
-
-/*    --------------------------------------------------
-  :: cart Section
-  -------------------------------------------------- */
-
-.cart-container{
-      padding-top: 15px;
-    padding-bottom: 30px;
-}
-
-.prod-wrapper{
-      margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-  .rupee-icon{
-  padding-right: 10px;
-}
-
-.rupee-icon , .prod-price{
-  font-size: 22px;
-  font-weight: lighter;
- color:firebrick;
-
 }

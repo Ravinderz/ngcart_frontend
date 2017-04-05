@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the ngCartAppApp
  */
-angular.module('ngCartAppApp')
+angular.module('ngCartApp')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

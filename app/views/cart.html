@@ -1,0 +1,19 @@
+<div class="container cart-container">
+  <div class="row prod-wrapper" ng-repeat="product in products">
+    <div class="col-md-3 float-left" >
+        <div class="prod-img">
+          <img ng-src={{product.productImg}} class="img" width="250px" height="230px" />
+        </div>
+    </div>
+    <div class="col-md-8 float-right">    
+        <div class="prod-portfolio">
+          <h3>{{product.productName}}</h3>
+          <p>{{product.productDesc}}</p>
+          <span class="rupee-icon"><i class="fa fa-inr" aria-hidden="true"></i></span><span class="prod-price">{{product.productPrice}}</span><br>
+          <span class="prod-type">{{product.productType}}</span>
+        </div>
+      </div>
+    <div class="clear-fix"></div>
+    <input type="button" class="btn btn-warning float-right" name="checkout" value="checkout" ng-click=checkout() />
+  </div>
+</div>
