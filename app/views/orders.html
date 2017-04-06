@@ -1,0 +1,27 @@
+<div class="container cart-container">
+<div class="row" ng-hide=!clickedCheckout>
+  <div class="col-md-12">
+    <p>your order <span class="order-id">{{lastOrderId}}</span> has been successfully placed. You will receive your product with in 2 working days.Meanwhile you can continue shopping by clicking <a ng-href="#!/products">here</a>.</p>
+  </div>
+</div>
+  <h3>Recent Orders</h3>
+   <div class="empty-order" ng-show=emptyOrders>
+    <p>You haven't ordered anything yet. browse our product catalogue to order some awesome products, click <a ng-href="#!/products">here</a></p>
+  </div>
+  <div class="row prod-wrapper" ng-repeat="order in orders">
+    <div class="col-md-3 float-left" >
+        <div class="prod-img">
+          <img ng-src={{order.productImg}} class="img" width="250px" height="230px" />
+        </div>
+    </div>
+    <div class="col-md-8 float-right">    
+        <div class="prod-portfolio">
+          <h3>{{order.productName}}</h3>
+          <p>{{order.productDesc}}</p>
+          <span class="rupee-icon"><i class="fa fa-inr" aria-hidden="true"></i></span><span class="prod-price">{{order.productPrice}}</span><br>
+          <span class="prod-type">{{order.productType}}</span>
+        </div>
+      </div>
+    <div class="clear-fix"></div>
+  </div>
+</div>

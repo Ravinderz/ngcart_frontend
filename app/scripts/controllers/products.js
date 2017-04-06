@@ -8,9 +8,11 @@
  * Controller of the ngCartAppApp
  */
 angular.module('ngCartApp')
-  .controller('ProductsCtrl',['$scope','$http','$rootScope',function ($scope,$http,$rootScope) {
+  .controller('ProductsCtrl',['$scope','$http','$rootScope','$location',function ($scope,$http,$rootScope,$location) {
     	$scope.products = {};
+    	$scope.clickedAddToCart = false;
     	$rootScope.user = angular.fromJson(sessionStorage.getItem("user"));
+    	$rootScope.username = $rootScope.user.firstName +" "+ $rootScope.user.lastName;
     	$rootScope.islogged = false;
     	if($rootScope.user){
     		$rootScope.islogged = true;
@@ -28,11 +30,25 @@ angular.module('ngCartApp')
 				$scope.products[i].productImg = "../images/"+response.data[i].productImg;
 				console.log($scope.products[i].productImg);
 			}
+			$scope.chunkedData = chunk($scope.products, 3);
+
+			
 		});
+
+		function chunk(arr, size) {
+  			var newArr = [];
+ 			 for (var i=0; i<arr.length; i+=size) {
+  				  newArr.push(arr.slice(i, i+size));
+  				}
+ 			 return newArr;
+			}
+
+
 
 		$scope.addToCart = function(product){
 			console.log(product);
-			
+
+			$scope.clickedAddToCart =true;
 
 			$http({
 				method : 'POST',
@@ -43,4 +59,14 @@ angular.module('ngCartApp')
 				console.log(response);
 			});
 		}
+
+		 $rootScope.logout = function(e){
+            console.log("inside logout function");
+            e.preventDefault();
+            if(sessionStorage.getItem("user")){
+                sessionStorage.removeItem("user");
+                $rootScope.islogged = false;
+                $location.path('/');
+            }
+        }
   }]);

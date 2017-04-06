@@ -41,6 +41,10 @@ body {
   margin: 30px 0;
 }
 
+.navbar{
+  margin-bottom: 0;
+}
+
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -218,4 +222,35 @@ body {
   font-weight: lighter;
  color:firebrick;
 
+}
+
+.username-dropdown{
+  margin-top: 7px;
+}
+
+.order-id{
+  color:firebrick;
+}
+
+.tag-div{
+  display:inline-block;
+  list-style:none;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin-right:8px;
+  margin-top:3px;
+  color: rgba(255,255,255,.9);
+    background: #e7e7e7;
+    border-radius: 4px;
+    color: grey;
+}
+
+.prod-desciption{
+  margin-bottom: 20px;
+}
+
+.product-container{
+  margin-bottom: 15px;
 }

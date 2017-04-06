@@ -1,17 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 " ng-repeat="product in products">
+<div class="container product-container">
+<div class="alert alert-success alert-dismissible" role="alert" ng-hide=!clickedAddToCart>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   Product successfully added to the cart.
+</div>
+  <div class="row" ng-repeat="rows in chunkedData">
+    <div class="col-md-4" ng-repeat="product in rows">
       <div class="prod-wrapper">
         <div class="prod-img">
           <img ng-src={{product.productImg}} class="img" width="350px" height="330px" />
         </div>
         <div class="prod-portfolio">
           <h3>{{product.productName}}</h3>
-          <p>{{product.productDesc}}</p>
-          <span class="prod-type float-left">{{product.productType}}</span><span class="prod-price float-right">{{product.productPrice}}</span>
+          <p class="prod-desciption">{{product.productDesc}}</p>
+          <span class="prod-type tag-div float-left">{{product.productType}}</span><span class="prod-price float-right"><i class="fa fa-inr rupee-icon" aria-hidden="true"></i>{{product.productPrice}}</span>
           <div class="clear-fix"></div>
           <input type="button" class="btn btn-warning float-right"  name="cart" value="add to cart" ng-click=addToCart(product)>
         </div>
       </div>
     </div>
+  </div>
 </div>

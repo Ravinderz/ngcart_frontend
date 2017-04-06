@@ -1,4 +1,8 @@
 <div class="container cart-container">
+  <div class="empty-cart" ng-show=emptyCart>
+    <p>Your cart is empty. browse our product catalogue to buy some awesome products, click <a ng-href="#!/products">here</a></p>
+  </div>
+
   <div class="row prod-wrapper" ng-repeat="product in products">
     <div class="col-md-3 float-left" >
         <div class="prod-img">
@@ -14,6 +18,6 @@
         </div>
       </div>
     <div class="clear-fix"></div>
-    <input type="button" class="btn btn-warning float-right" name="checkout" value="checkout" ng-click=checkout() />
   </div>
+  <input type="button" class="btn btn-warning float-right" name="checkout" value="checkout" ng-click=checkout() ng-hide=emptyCart />
 </div>

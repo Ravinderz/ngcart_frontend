@@ -10,12 +10,12 @@
 angular.module('ngCartApp')
   .controller('LoginCtrl',['$scope','$http','$location',function ($scope,$http,$location) {
     	$scope.user = {};
-
+      $scope.registerMsg = "";
     	$scope.login = function(){
     		$http({
   				method: 'POST',
   				url: 'http://localhost:8080/ngCart/login',
- 				data:angular.toJson($scope.user)
+ 				  data:angular.toJson($scope.user)
   			}).then(function(response){
   				console.log(response.data);
   				$scope.user = response.data;
@@ -34,6 +34,7 @@ angular.module('ngCartApp')
  				data:angular.toJson($scope.user)
   			}).then(function(response){
   				console.log(response);
+          $scope.registerMsg = response.data.message;
   			});
   		}
 
