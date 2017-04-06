@@ -10,12 +10,12 @@
 angular.module('ngCartApp')
   .controller('OrdersCtrl',['$scope','$http','$rootScope','$location',function ($scope,$http,$rootScope,$location) {
     	$scope.orders = {};
-    	$rootScope.user = angular.fromJson(sessionStorage.getItem("user"));
-        $rootScope.username = $rootScope.user.firstName +" "+ $rootScope.user.lastName;
-        $scope.lastOrderId = sessionStorage.getItem("orderId");
+    	$rootScope.user = angular.fromJson(sessionStorage.getItem('user'));
+        $rootScope.username = $rootScope.user.firstName +' '+ $rootScope.user.lastName;
+        $scope.lastOrderId = sessionStorage.getItem('orderId');
         $scope.emptyOrders = true;
         if($scope.lastOrderId){
-            sessionStorage.removeItem("orderId");
+            sessionStorage.removeItem('orderId');
         }
     	$rootScope.islogged = false;
     	if($rootScope.user){
@@ -40,18 +40,18 @@ angular.module('ngCartApp')
                 $scope.emptyOrders = false;
             }
 			for (var i = $scope.orders.length - 1; i >= 0; i--) {
-				$scope.orders[i].productImg = "../images/"+response.data[i].productImg;
+				$scope.orders[i].productImg = '../images/'+response.data[i].productImg;
 				console.log($scope.orders[i].productImg);
 			}
 		});
 
         $rootScope.logout = function(e){
-            console.log("inside logout function");
+            console.log('inside logout function');
             e.preventDefault();
-            if(sessionStorage.getItem("user")){
-                sessionStorage.removeItem("user");
+            if(sessionStorage.getItem('user')){
+                sessionStorage.removeItem('user');
                 $rootScope.islogged = false;
                 $location.path('/');
             }
-        }
+        };
   }]);

@@ -10,8 +10,8 @@
 angular.module('ngCartApp')
   .controller('CartCtrl',['$scope','$http','$rootScope','$location',function ($scope,$http,$rootScope,$location) {
     	$scope.products = {};
-    	$rootScope.user = angular.fromJson(sessionStorage.getItem("user"));
-        $rootScope.username = $rootScope.user.firstName +" "+ $rootScope.user.lastName;
+    	$rootScope.user = angular.fromJson(sessionStorage.getItem('user'));
+        $rootScope.username = $rootScope.user.firstName +' '+ $rootScope.user.lastName;
     	$rootScope.islogged = false;
         $scope.emptyCart = true;
     	if($rootScope.user){
@@ -30,7 +30,7 @@ angular.module('ngCartApp')
                 $scope.emptyCart = false;
             }
 			for (var i = $scope.products.length - 1; i >= 0; i--) {
-				$scope.products[i].productImg = "../images/"+response.data[i].productImg;
+				$scope.products[i].productImg = '../images/'+response.data[i].productImg;
 				console.log($scope.products[i].productImg);
 			}
 		});
@@ -43,18 +43,18 @@ angular.module('ngCartApp')
    				'Content-Type': 'appication/json'
  				}
     	}).then(function(response){
-            sessionStorage.setItem("orderId",response.data.message);
+            sessionStorage.setItem('orderId',response.data.message);
 			$location.path('/orders');
 		});
-		}
+		};
 
         $rootScope.logout = function(e){
-            console.log("inside logout function");
+            console.log('inside logout function');
             e.preventDefault();
-            if(sessionStorage.getItem("user")){
-                sessionStorage.removeItem("user");
+            if(sessionStorage.getItem('user')){
+                sessionStorage.removeItem('user');
                $rootScope.islogged = false;
                 $location.path('/');
             }
-        }
+        };
   }]);

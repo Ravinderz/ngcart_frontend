@@ -10,7 +10,7 @@
 angular.module('ngCartApp')
   .controller('LoginCtrl',['$scope','$http','$location',function ($scope,$http,$location) {
     	$scope.user = {};
-      $scope.registerMsg = "";
+      $scope.registerMsg = '';
     	$scope.login = function(){
     		$http({
   				method: 'POST',
@@ -22,7 +22,7 @@ angular.module('ngCartApp')
   				sessionStorage.setItem('user', angular.toJson($scope.user));
   				$location.path('/products');
   			});
-    	}
+    	};
   }]).controller('RegisterCtrl',['$scope','$http',function($scope,$http){
   		$scope.user = {};
 
@@ -36,6 +36,6 @@ angular.module('ngCartApp')
   				console.log(response);
           $scope.registerMsg = response.data.message;
   			});
-  		}
+  		};
 
   }]);
