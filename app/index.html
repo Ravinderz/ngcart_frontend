@@ -44,7 +44,7 @@
               <li><a ng-href="#/">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav float-right" ng-hide=!islogged>
-              <li><a ng-href="#!/cart"><span class="cart-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a></li>
+              <li><a ng-href="#!/cart"><span class="cart-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span><span class="badge badge-notify">{{cartSize}}</span></a></li>
               <li>
                 <div class="dropdown">
                    <button class="btn btn-primary dropdown-toggle username-dropdown" type="button" data-toggle="dropdown">{{username}}

@@ -3,7 +3,7 @@
     <p>Your cart is empty. browse our product catalogue to buy some awesome products, click <a ng-href="#!/products">here</a></p>
   </div>
 
-  <div class="row prod-wrapper" ng-repeat="product in products">
+  <div class="row prod-wrapper" ng-repeat="(key,product) in products">
     <div class="col-md-3 float-left" >
         <div class="prod-img">
           <img ng-src={{product.productImg}} class="img" width="250px" height="230px" />
@@ -13,8 +13,12 @@
         <div class="prod-portfolio">
           <h3>{{product.productName}}</h3>
           <p>{{product.productDesc}}</p>
+          <div class="price-spec float-left">
           <span class="rupee-icon"><i class="fa fa-inr" aria-hidden="true"></i></span><span class="prod-price">{{product.productPrice}}</span><br>
           <span class="prod-type">{{product.productType}}</span>
+          </div>
+          <button class="btn btn-warning float-right cart-delete" ng-click=removeFromCart(product.cartItemId,key)>remove from cart</button>
+          <div class="clear-fix"></div>
         </div>
       </div>
     <div class="clear-fix"></div>

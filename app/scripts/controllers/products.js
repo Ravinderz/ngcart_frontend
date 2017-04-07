@@ -10,6 +10,7 @@
 angular.module('ngCartApp')
   .controller('ProductsCtrl',['$scope','$http','$rootScope','$location',function ($scope,$http,$rootScope,$location) {
     	$scope.products = {};
+    	$rootScope.cartSize = '';
     	$scope.clickedAddToCart = false;
     	$rootScope.user = angular.fromJson(sessionStorage.getItem('user'));
     	$rootScope.username = $rootScope.user.firstName +' '+ $rootScope.user.lastName;
@@ -31,8 +32,6 @@ angular.module('ngCartApp')
 				console.log($scope.products[i].productImg);
 			}
 			$scope.chunkedData = chunk($scope.products, 3);
-
-			
 		});
 
 		function chunk(arr, size) {
@@ -43,11 +42,22 @@ angular.module('ngCartApp')
  			 return newArr;
 			}
 
-
+		$http({
+    		method: 'GET',
+    		url : 'http://localhost:8080/ngCart/displayCart/'+$rootScope.user.userId,
+    		 headers: {
+   				'Content-Type': 'appication/json'
+ 				}
+    	}).then(function(response){
+    		console.log(response);
+			$scope.products = response.data;
+        $rootScope.cartSize = $scope.products.length;
+        
+		});
 
 		$scope.addToCart = function(product){
 			console.log(product);
-
+			
 			$scope.clickedAddToCart =true;
 
 			$http({
@@ -55,6 +65,7 @@ angular.module('ngCartApp')
 				url:'http://localhost:8080/ngCart/addToCart/'+$rootScope.user.userId,
  				data : product
 			}).then(function(response){
+				$rootScope.cartSize++;
 				console.log('THe product has been added to cart');
 				console.log(response);
 			});

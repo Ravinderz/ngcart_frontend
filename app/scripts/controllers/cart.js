@@ -35,7 +35,22 @@ angular.module('ngCartApp')
 			}
 		});
 
+        $scope.removeFromCart = function(cartItemId,key){
+            $http({
+            method: 'GET',
+            url : 'http://localhost:8080/ngCart/removeFromCart/'+cartItemId,
+             headers: {
+                'Content-Type': 'appication/json'
+                }
+        }).then(function(response){
+            console.log(response.data);
+            $rootScope.cartSize--;
+            $scope.products.splice(key,1)
+        });
+        }
+
 		$scope.checkout = function(){
+            $rootScope.cartSize = 0;
 			$http({
     		method: 'GET',
     		url : 'http://localhost:8080/ngCart/checkout/'+$rootScope.user.userId,

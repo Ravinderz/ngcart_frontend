@@ -208,6 +208,10 @@ body {
     padding-bottom: 30px;
 }
 
+.cart-icon{
+      font-size: 20px;
+}
+
 .prod-wrapper{
       margin-top: 10px;
     margin-bottom: 10px;
@@ -253,4 +257,15 @@ body {
 
 .product-container{
   margin-bottom: 15px;
+}
+
+.badge-notify{
+   background:red;
+   position:relative;
+   top: -15px;
+}
+
+.cart-delete{
+      margin-top: 10px;
+    margin-right: 10px;
 }
